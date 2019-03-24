@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// Import the model (birger.js) to use its database functions.
+// Import the model (burger.js) to use its database functions.
 const burger = require("../models/burger.js");
 
 // create get, post, put, and delete routes
@@ -16,11 +16,16 @@ router.get('/', function(req, res) {
     })
 });
     
-
-
-router.put("/api/burgers/:id", function(req, res){
-    const condition = "id = " + req.params.id;
+router.post("/api/burgers", function(req, res) {
+console.log("got to create router");
+    burger.create(req.body,function(res) {
+        res.json(resa);
+    })
 })
+
+// router.put("/api/burgers/:id", function(req, res){
+//     const condition = "id = " + req.params.id;
+// })
 
 // router.update({
 //     burger_name: req.body.burger_name,
@@ -28,17 +33,6 @@ router.put("/api/burgers/:id", function(req, res){
 // })
 
 
-//     cat.update({
-//       sleepy: req.body.sleepy
-//     }, condition, function(result) {
-//       if (result.changedRows == 0) {
-//         // If no rows were changed, then the ID must not exist, so 404
-//         return res.status(404).end();
-//       } else {
-//         res.status(200).end();
-//       }
-//     });
-//   });
   
 //   router.delete("/api/cats/:id", function(req, res) {
 //     const condition = "id = " + req.params.id;

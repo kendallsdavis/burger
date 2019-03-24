@@ -1,3 +1,4 @@
+{{!-- page header --}}
 <div class = "container">
     <div class = "row">
         <div class = "col-md-4"></div>
@@ -8,6 +9,7 @@
         <br><br><br>
     </div>
 
+{{!-- template to input new burger  --}}
     <div class = "row">
             <div class = "col-md-4"></div>
              <div class = "col-md-4">
@@ -16,35 +18,37 @@
                  <br><br>
                  <form>
                      <div class="form-group">
-                         <input type="text" class="form-control" id="new-burger" placeholder="Enter a Burger Here!" >
+                         <input type="text" class="form-control" id="newBurger" placeholder="Enter a Burger Here!" >
                      </div>
-                     <button class="btn btn-primary" id = "add-burger">Add Burger</button>
+                     <button class="btn btn-primary" id = "addNewBurger">Add Burger</button>
                  </form>
              </div>
              <div class = "col-md-4"></div>             
          </div><br>
 
-
+{{!-- HTML template for burgers not yet eaten --}}
     <div class = "row menu">
         <div class = "col-md-4">
             <h2>Can't Wait to Eat These Burgers! </h2>
             <ul class = "list-group">
                 {{#each burger}}
                     {{#unless devoured}}
-                    <li class = "list-group-item" id = "{{id}}">{{burger_name}} <button data-value ="{{id}}" class = "devour btn btn-primary">Eat Me!</button></li>
+                    <li class = "list-group-item" id = "{{id}}">{{burger_name}} <button burger-val ="{{id}}" class = "btn btn-primary" id="devour">Eat Me!</button></li>
                     {{/unless}}
                 {{/each}}
             </ul>
         </div>
          <div class = "col-md-4"></div>
+
+{{!-- html template for burgers already eaten --}}
         <div class = "col-4">
             <h2>Yum - Already Ate These! </h2>
             <ul class = "list-group">
                 {{#each burger}}
-                    {{#if beenEaten}}
+                    {{#if eaten}}
                     <li class = "list-group-item" id = "{{id}}">{{burger_name}} 
                         {{#if devoured}}
-                        <button data-value ="{{id}}" class = "revive btn btn-primary">Too Good! Make Again!</button>
+                        <button data-value ="{{id}}" class = "btn btn-primary" id="makeAgain">Too Good! Make Again!</button>
                         {{/if}}
                         <div class = "row">
                             <small>Burgers Eaten: {{eaten}}</small>

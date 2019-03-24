@@ -12,16 +12,12 @@ const orm = {
   },
  
   // insertOne()
-  createBurger: function(burgerName){
-    const queryString = "INSERT INTO burger SET ?";
-        {
-          burger_name: burgerName
-        };
-    connection.query(queryString,[burgerName], function(err, result){
+  createBurger: function(burger, callback){
+    connection.query("INSERT into burgers (burger_name) VALUES (?)",[burger.burger_name], function(err, result){
       if(err) {
-        throw err;
+        return callback(error);
       }
-      console.log(result)
+      callback(result)
     })
   },
 

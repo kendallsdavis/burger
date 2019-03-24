@@ -8,11 +8,12 @@ const burger = {
         });
     },
 
-    create: function(){
-            orm.createBurger("Terribly Bland Veggie Burger", function(res){
-            // console.log(res)
-            });
-        },
+    create : function (burger,callback) {
+        console.log("got to create function");
+        orm.createBurger(burger,function(results) {
+            callback(results);
+        })
+    },
     
     update: function(){
         orm.updateBurgers("burger_name", "id", function(res){
