@@ -2,6 +2,18 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mysql = require("mysql");
 const app = express();
+const path = require("path");
+
+//Including dependency
+var Sequelize = require("sequelize");
+ 
+//Setting up the config
+var sequelize = new Sequelize('burgers_db', 'root', '12345', {
+    host: "localhost",
+    port: 3306,
+    dialect: 'mysql'
+});
+
 
 const PORT = 8080;
 

@@ -14,7 +14,7 @@
             <div class = "col-md-4"></div>
              <div class = "col-md-4">
                  <h5>What Type of Burger Would You Like to Make?</h5>
-                 <img id="burger" src="../assets/images/burger.jpg" height="200px" width="250px">
+                 <img id="burger" src="/assets/images/burger.jpg" height="200px" width="250px">
                  <br><br>
                  <form>
                      <div class="form-group">
@@ -29,7 +29,7 @@
 {{!-- HTML template for burgers not yet eaten --}}
     <div class = "row menu">
         <div class = "col-md-4">
-            <h2>Can't Wait to Eat These Burgers! </h2>
+            <h5>Can't Wait to Eat These Burgers! </h5>
             <ul class = "list-group">
                 {{#each burger}}
                     {{#unless devoured}}
@@ -42,7 +42,7 @@
 
 {{!-- html template for burgers already eaten --}}
         <div class = "col-4">
-            <h2>Yum - Already Ate These! </h2>
+            <h5>Yum - Already Ate These! </h5>
             <ul class = "list-group">
                 {{#each burger}}
                     {{#if eaten}}

@@ -13,9 +13,10 @@ const orm = {
  
   // insertOne()
   createBurger: function(burger, callback){
+    console.log("orm create burger works");
     connection.query("INSERT into burgers (burger_name) VALUES (?)",[burger.burger_name], function(err, result){
       if(err) {
-        return callback(error);
+        return callback(err);
       }
       callback(result)
     })
